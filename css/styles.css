@@ -660,3 +660,17 @@ img {
         height: 50px;
     }
 }
+
+/* ==========================================================================
+   Animações de Scroll
+   ========================================================================== */
+.fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-up.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
