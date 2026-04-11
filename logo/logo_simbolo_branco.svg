@@ -16,8 +16,15 @@
    height="188.75319mm"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:svg="http://www.w3.org/2000/svg"><defs
+xmlns:svg="http://www.w3.org/2000/svg">
+  <style>
+    @media (prefers-color-scheme: light) {
+      path[style*="fill:#ffffff"], path[fill="#ffffff"] {
+        fill: #1c335a !important;
+      }
+    }
+  </style>
+<defs
    id="defs95" /><sodipodi:namedview
    id="namedview95"
    pagecolor="#ffffff"
