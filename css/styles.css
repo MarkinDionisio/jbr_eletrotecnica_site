@@ -278,12 +278,15 @@ img {
 .strip-item {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     gap: 0.75rem;
     font-family: var(--font-heading);
     font-size: 1.25rem;
     font-weight: 700;
     text-transform: uppercase;
+    width: 100%;
+    max-width: 250px;
+    margin: 0 auto;
 }
 
 /* ==========================================================================
