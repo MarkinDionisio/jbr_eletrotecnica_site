@@ -89,4 +89,10 @@ document.addEventListener('DOMContentLoaded', () => {
     fadeElements.forEach(el => {
         scrollObserver.observe(el);
     });
+
+    // Atualizar o ano atual automaticamente no rodapé
+    const currentYearElement = document.getElementById('current-year');
+    if (currentYearElement) {
+        currentYearElement.textContent = new Date().getFullYear();
+    }
 });
