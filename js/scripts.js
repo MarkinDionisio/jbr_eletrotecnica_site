@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Menu Mobile Trigger
+    // Mobile Menu Trigger
     const mobileMenuBtn = document.getElementById('mobile-menu-btn');
     const navLinks = document.getElementById('nav-links');
 
@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Fechar menu mobile ao clicar em um link
+    // Close mobile menu when clicking on a link
     const links = document.querySelectorAll('.nav-links a');
     links.forEach(link => {
         link.addEventListener('click', () => {
@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Animação/efeito na Navbar no Scroll
+    // Navbar animation/effect on scroll
     const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
@@ -31,56 +31,56 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Handler do formulário de contato (Redirecionamento para WhatsApp)
-    const formContato = document.getElementById('form-contato');
-    if (formContato) {
-        formContato.addEventListener('submit', (e) => {
+    // Contact form handler (Redirect to WhatsApp)
+    const contactForm = document.getElementById('form-contato');
+    if (contactForm) {
+        contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
             
-            const btn = formContato.querySelector('button[type="submit"]');
+            const btn = contactForm.querySelector('button[type="submit"]');
             const originalText = btn.textContent;
             
             btn.textContent = 'Redirecionando...';
             btn.disabled = true;
 
-            // Extrair os dados do formulário
-            const nome = document.getElementById('nome').value;
+            // Extract form data
+            const name = document.getElementById('nome').value;
             const email = document.getElementById('email').value;
-            const assunto = document.getElementById('assunto').value;
-            const mensagem = document.getElementById('mensagem').value;
+            const subject = document.getElementById('assunto').value;
+            const message = document.getElementById('mensagem').value;
 
-            // Montar a mensagem para o WhatsApp
-            const textoWhatsApp = `Olá, vim pelo site da JBR Eletrotécnica!\n\n*Nome:* ${nome}\n*E-mail:* ${email}\n*Assunto:* ${assunto}\n*Mensagem:* ${mensagem}`;
-            const textoCodificado = encodeURIComponent(textoWhatsApp);
+            // Build the WhatsApp message
+            const whatsappText = `Olá, vim pelo site da JBR Eletrotécnica!\n\n*Nome:* ${name}\n*E-mail:* ${email}\n*Assunto:* ${subject}\n*Mensagem:* ${message}`;
+            const encodedText = encodeURIComponent(whatsappText);
             
-            // Número da JBR (DDI 55 + DDD 17 + Número)
-            const numeroWhatsApp = "5517996584418"; 
+            // JBR Number (DDI 55 + DDD 17 + Number)
+            const whatsappNumber = "5517996584418"; 
 
-            // Redirecionar para o WhatsApp na nova guia
-            const urlWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${textoCodificado}`;
-            window.open(urlWhatsApp, '_blank');
+            // Redirect to WhatsApp in a new tab
+            const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedText}`;
+            window.open(whatsappUrl, '_blank');
 
-            // Limpar formulário após o redirecionamento
+            // Clear form after redirect
             setTimeout(() => {
-                formContato.reset();
+                contactForm.reset();
                 btn.textContent = originalText;
                 btn.disabled = false;
             }, 1500);
         });
     }
 
-    // Intersection Observer para Animações de Scroll (Fade Up)
+    // Intersection Observer for Scroll Animations (Fade Up)
     const observerOptions = {
         root: null,
         rootMargin: '0px',
-        threshold: 0.15 // 15% do elemento visível
+        threshold: 0.15 // 15% of the element visible
     };
 
     const scrollObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('animate');
-                observer.unobserve(entry.target); // Anima apenas 1 vez
+                observer.unobserve(entry.target); // Animate only once
             }
         });
     }, observerOptions);
@@ -90,13 +90,14 @@ document.addEventListener('DOMContentLoaded', () => {
         scrollObserver.observe(el);
     });
 
-    // Atualizar o ano atual automaticamente no rodapé
+    // Automatically update the current year in the footer
     const currentYearElement = document.getElementById('current-year');
     if (currentYearElement) {
         currentYearElement.textContent = new Date().getFullYear();
     }
+
     // ==========================================
-    // Dados completos dos Serviços
+    // Full Services Data
     // ==========================================
     const servicesData = {
         "1": {
@@ -138,7 +139,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // ==========================================
-    // Lógica do Modal de Serviços
+    // Services Modal Logic
     // ==========================================
     const serviceCards = document.querySelectorAll('.service-card');
     const modal = document.getElementById('serviceModal');
@@ -159,7 +160,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     modalBody.innerHTML = `<p>${servicesData[serviceId].text}</p>`;
                     modalIcon.innerHTML = iconSvg;
                     modal.classList.add('active');
-                    document.body.style.overflow = 'hidden';
+                    document.body.style.overflow = 'hidden'; // Prevent body scroll
                 }
             };
 
@@ -181,6 +182,7 @@ document.addEventListener('DOMContentLoaded', () => {
             btn.addEventListener('click', closeModal);
         });
 
+        // Close on ESC key press
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && modal.classList.contains('active')) {
                 closeModal();
