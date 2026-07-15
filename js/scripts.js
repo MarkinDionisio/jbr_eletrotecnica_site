@@ -141,7 +141,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // ==========================================
     // Services Modal Logic
     // ==========================================
-    const serviceCards = document.querySelectorAll('.service-card');
+    const serviceCards = document.querySelectorAll('.service-card[data-service]');
     const modal = document.getElementById('serviceModal');
     const modalTitle = document.getElementById('modalTitle');
     const modalBody = document.getElementById('modalBody');
@@ -151,7 +151,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (modal && serviceCards.length > 0) {
         serviceCards.forEach(card => {
             const btn = card.querySelector('.btn-read-more');
-            const iconSvg = card.querySelector('.service-icon').innerHTML;
+            const iconElement = card.querySelector('.service-icon');
+            const iconSvg = iconElement ? iconElement.innerHTML : '';
             const serviceId = card.getAttribute('data-service');
 
             const openModal = () => {
@@ -186,6 +187,37 @@ document.addEventListener('DOMContentLoaded', () => {
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && modal.classList.contains('active')) {
                 closeModal();
+            }
+        });
+    }
+
+    // ==========================================
+    // Clientes Modal Logic
+    // ==========================================
+    const btnVerTodosClientes = document.getElementById('btn-ver-todos-clientes');
+    const clientesModal = document.getElementById('clientesModal');
+    const closeClientesBtns = document.querySelectorAll('[data-close-clientes="true"]');
+
+    if (btnVerTodosClientes && clientesModal) {
+        const openClientesModal = () => {
+            clientesModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        };
+
+        const closeClientesModal = () => {
+            clientesModal.classList.remove('active');
+            document.body.style.overflow = '';
+        };
+
+        btnVerTodosClientes.addEventListener('click', openClientesModal);
+
+        closeClientesBtns.forEach(btn => {
+            btn.addEventListener('click', closeClientesModal);
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && clientesModal.classList.contains('active')) {
+                closeClientesModal();
             }
         });
     }

@@ -578,6 +578,105 @@ img {
 }
 
 /* ==========================================================================
+   Clientes (Logos)
+   ========================================================================== */
+.section-clientes {
+    padding: 4rem 0;
+    background-color: var(--color-white);
+    overflow: hidden;
+}
+
+.clientes-slider {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    padding: 2rem 0;
+}
+
+/* Sombreamento nas bordas para dar efeito de entrada/saída */
+.clientes-slider::before,
+.clientes-slider::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 150px;
+    height: 100%;
+    z-index: 2;
+}
+
+.clientes-slider::before {
+    left: 0;
+    background: linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+}
+
+.clientes-slider::after {
+    right: 0;
+    background: linear-gradient(to left, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+}
+
+.clientes-slide-track {
+    display: flex;
+    align-items: center;
+    width: calc(200px * 38); /* 19 logos * 2 = 38 */
+    animation: scroll 40s linear infinite;
+}
+
+.clientes-slide-track:hover {
+    animation-play-state: paused;
+}
+
+.cliente-logo {
+    width: 200px;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cliente-logo img {
+    max-width: 100%;
+    max-height: 80px;
+    object-fit: contain;
+    filter: grayscale(100%) opacity(0.6);
+    transition: filter var(--transition-base), transform var(--transition-base), opacity var(--transition-base);
+}
+
+.cliente-logo img:hover {
+    filter: grayscale(0%) opacity(1);
+    transform: scale(1.05);
+}
+
+.cliente-logo img.dark-bg-logo {
+    background-color: var(--color-primary);
+    padding: 10px 15px;
+    border-radius: 8px;
+    filter: grayscale(100%) opacity(0.9);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.cliente-logo img.dark-bg-logo:hover {
+    filter: grayscale(0%) opacity(1);
+    transform: scale(1.05);
+}
+
+@keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-200px * 19)); }
+}
+
+.clientes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 1.5rem;
+    padding: 1rem 0;
+}
+
+.clientes-grid .cliente-logo {
+    width: 100%;
+    padding: 0;
+}
+
+/* ==========================================================================
    Media Queries (Responsividade)
    ========================================================================== */
 @media (max-width: 1024px) {

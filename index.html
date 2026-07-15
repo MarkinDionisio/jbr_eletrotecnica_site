@@ -281,6 +281,61 @@
             </div>
         </section>
 
+        <!-- Clientes -->
+        <section id="clientes" class="section-clientes">
+            <div class="container">
+                <h2 class="section-title text-center fade-up" style="margin-bottom: 2rem;">Nossos Clientes</h2>
+            </div>
+            <div class="clientes-slider fade-up">
+                <div class="clientes-slide-track">
+                    <!-- Original 19 logos -->
+                    <div class="cliente-logo"><img src="clientes/LOGO-BIOENERGETICA-AROEIRA.png" alt="Bioenergética Aroeira"></div>
+                    <div class="cliente-logo"><img src="clientes/Logo viralcool.png" alt="Viralcool"></div>
+                    <div class="cliente-logo"><img src="clientes/Logo-TRON.png" alt="Tron"></div>
+                    <div class="cliente-logo"><img src="clientes/WEG-Logo-500x281.png" alt="WEG"></div>
+                    <div class="cliente-logo"><img src="clientes/grupo moreno.png" alt="Grupo Moreno" class="dark-bg-logo"></div>
+                    <div class="cliente-logo"><img src="clientes/logo Energisa.png" alt="Energisa"></div>
+                    <div class="cliente-logo"><img src="clientes/logo Frucamp.png" alt="Frucamp"></div>
+                    <div class="cliente-logo"><img src="clientes/logo Igui.png" alt="Igui"></div>
+                    <div class="cliente-logo"><img src="clientes/logo Morlam.png" alt="Morlam"></div>
+                    <div class="cliente-logo"><img src="clientes/logo NG Reservatorios.png" alt="NG Reservatórios"></div>
+                    <div class="cliente-logo"><img src="clientes/logo itaquere.jfif.jpeg" alt="Itaquere"></div>
+                    <div class="cliente-logo"><img src="clientes/logo light.png" alt="Light"></div>
+                    <div class="cliente-logo"><img src="clientes/logo saec.png" alt="SAEC"></div>
+                    <div class="cliente-logo"><img src="clientes/logo usina nardine.png" alt="Usina Nardine"></div>
+                    <div class="cliente-logo"><img src="clientes/logo-coplan.png" alt="Coplan"></div>
+                    <div class="cliente-logo"><img src="clientes/logo-nutoil.png" alt="Nutoil"></div>
+                    <div class="cliente-logo"><img src="clientes/logo-usina colombo.png" alt="Usina Colombo"></div>
+                    <div class="cliente-logo"><img src="clientes/logo_loren-sid.png" alt="Loren Sid"></div>
+                    <div class="cliente-logo"><img src="clientes/usaodomingos_logo.jfif.jpeg" alt="Usina São Domingos"></div>
+                    
+                    <!-- Duplicated 19 logos for infinite scroll -->
+                    <div class="cliente-logo"><img src="clientes/LOGO-BIOENERGETICA-AROEIRA.png" alt="Bioenergética Aroeira"></div>
+                    <div class="cliente-logo"><img src="clientes/Logo viralcool.png" alt="Viralcool"></div>
+                    <div class="cliente-logo"><img src="clientes/Logo-TRON.png" alt="Tron"></div>
+                    <div class="cliente-logo"><img src="clientes/WEG-Logo-500x281.png" alt="WEG"></div>
+                    <div class="cliente-logo"><img src="clientes/grupo moreno.png" alt="Grupo Moreno" class="shadow-logo"></div>
+                    <div class="cliente-logo"><img src="clientes/logo Energisa.png" alt="Energisa"></div>
+                    <div class="cliente-logo"><img src="clientes/logo Frucamp.png" alt="Frucamp"></div>
+                    <div class="cliente-logo"><img src="clientes/logo Igui.png" alt="Igui"></div>
+                    <div class="cliente-logo"><img src="clientes/logo Morlam.png" alt="Morlam"></div>
+                    <div class="cliente-logo"><img src="clientes/logo NG Reservatorios.png" alt="NG Reservatórios"></div>
+                    <div class="cliente-logo"><img src="clientes/logo itaquere.jfif.jpeg" alt="Itaquere"></div>
+                    <div class="cliente-logo"><img src="clientes/logo light.png" alt="Light"></div>
+                    <div class="cliente-logo"><img src="clientes/logo saec.png" alt="SAEC"></div>
+                    <div class="cliente-logo"><img src="clientes/logo usina nardine.png" alt="Usina Nardine"></div>
+                    <div class="cliente-logo"><img src="clientes/logo-coplan.png" alt="Coplan"></div>
+                    <div class="cliente-logo"><img src="clientes/logo-nutoil.png" alt="Nutoil"></div>
+                    <div class="cliente-logo"><img src="clientes/logo-usina colombo.png" alt="Usina Colombo"></div>
+                    <div class="cliente-logo"><img src="clientes/logo_loren-sid.png" alt="Loren Sid"></div>
+                    <div class="cliente-logo"><img src="clientes/usaodomingos_logo.jfif.jpeg" alt="Usina São Domingos"></div>
+                </div>
+            </div>
+            <div class="text-center fade-up" style="margin-top: 1rem;">
+                <button id="btn-ver-todos-clientes" class="btn btn-primary">Ver Todos os Clientes</button>
+            </div>
+        </section>
+
         <!-- Contact -->
         <section id="contato" class="section-contato">
             <div class="container contato-grid">
@@ -409,8 +464,44 @@
         </div>
     </div>
 
+    <!-- Clientes Modal -->
+    <div id="clientesModal" class="modal" aria-hidden="true">
+        <div class="modal-overlay" tabindex="-1" data-close-clientes="true"></div>
+        <div class="modal-content" role="dialog" aria-modal="true" style="max-width: 800px; width: 95%; max-height: 90vh; overflow-y: auto;">
+            <button class="modal-close" aria-label="Fechar" data-close-clientes="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+            <div class="modal-header">
+                <h3 style="margin: 0; color: var(--color-primary); font-size: 1.5rem;">Nossos Clientes</h3>
+            </div>
+            <div class="modal-body">
+                <div class="clientes-grid">
+                    <div class="cliente-logo"><img src="clientes/LOGO-BIOENERGETICA-AROEIRA.png" alt="Bioenergética Aroeira"></div>
+                    <div class="cliente-logo"><img src="clientes/Logo viralcool.png" alt="Viralcool"></div>
+                    <div class="cliente-logo"><img src="clientes/Logo-TRON.png" alt="Tron"></div>
+                    <div class="cliente-logo"><img src="clientes/WEG-Logo-500x281.png" alt="WEG"></div>
+                    <div class="cliente-logo"><img src="clientes/grupo moreno.png" alt="Grupo Moreno" class="dark-bg-logo"></div>
+                    <div class="cliente-logo"><img src="clientes/logo Energisa.png" alt="Energisa"></div>
+                    <div class="cliente-logo"><img src="clientes/logo Frucamp.png" alt="Frucamp"></div>
+                    <div class="cliente-logo"><img src="clientes/logo Igui.png" alt="Igui"></div>
+                    <div class="cliente-logo"><img src="clientes/logo Morlam.png" alt="Morlam"></div>
+                    <div class="cliente-logo"><img src="clientes/logo NG Reservatorios.png" alt="NG Reservatórios"></div>
+                    <div class="cliente-logo"><img src="clientes/logo itaquere.jfif.jpeg" alt="Itaquere"></div>
+                    <div class="cliente-logo"><img src="clientes/logo light.png" alt="Light"></div>
+                    <div class="cliente-logo"><img src="clientes/logo saec.png" alt="SAEC"></div>
+                    <div class="cliente-logo"><img src="clientes/logo usina nardine.png" alt="Usina Nardine"></div>
+                    <div class="cliente-logo"><img src="clientes/logo-coplan.png" alt="Coplan"></div>
+                    <div class="cliente-logo"><img src="clientes/logo-nutoil.png" alt="Nutoil"></div>
+                    <div class="cliente-logo"><img src="clientes/logo-usina colombo.png" alt="Usina Colombo"></div>
+                    <div class="cliente-logo"><img src="clientes/logo_loren-sid.png" alt="Loren Sid"></div>
+                    <div class="cliente-logo"><img src="clientes/usaodomingos_logo.jfif.jpeg" alt="Usina São Domingos"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Scripts -->
-    <script src="js/scripts.js"></script>
+    <script src="js/scripts.js?v=3"></script>
 </body>
 
 </html>
