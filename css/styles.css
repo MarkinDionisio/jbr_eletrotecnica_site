@@ -637,26 +637,25 @@ img {
     max-width: 100%;
     max-height: 80px;
     object-fit: contain;
-    filter: grayscale(100%) opacity(0.6);
-    transition: filter var(--transition-base), transform var(--transition-base), opacity var(--transition-base);
+    transition: transform var(--transition-base), filter var(--transition-base), box-shadow var(--transition-base);
 }
 
 .cliente-logo img:hover {
-    filter: grayscale(0%) opacity(1);
     transform: scale(1.05);
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15));
 }
 
 .cliente-logo img.dark-bg-logo {
     background-color: var(--color-primary);
     padding: 10px 15px;
     border-radius: 8px;
-    filter: grayscale(100%) opacity(0.9);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .cliente-logo img.dark-bg-logo:hover {
-    filter: grayscale(0%) opacity(1);
     transform: scale(1.05);
+    filter: none;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
 }
 
 @keyframes scroll {
