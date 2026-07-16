@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const encodedText = encodeURIComponent(whatsappText);
             
             // JBR Number (DDI 55 + DDD 17 + Number)
-            const whatsappNumber = "5517996584418"; 
+            const whatsappNumber = "5517996454708"; 
 
             // Redirect to WhatsApp in a new tab
             const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedText}`;
