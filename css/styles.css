@@ -12,10 +12,10 @@
     --color-white: #FFFFFF;
     --color-whatsapp: #25D366;
     --color-whatsapp-hover: #1ea952;
-    
+
     --font-heading: 'Barlow Condensed', sans-serif;
     --font-body: 'Barlow', sans-serif;
-    
+
     --transition-fast: 0.2s ease;
     --transition-base: 0.3s ease;
 }
@@ -42,7 +42,12 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-family: var(--font-heading);
     line-height: 1.2;
     color: var(--color-primary);
@@ -132,7 +137,7 @@ img {
     background-color: var(--color-primary);
     z-index: 1000;
     padding: 1rem 0;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .navbar-container {
@@ -141,8 +146,23 @@ img {
     align-items: center;
 }
 
+.logo-link {
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+}
+
+.logo-link.hidden-navbar-logo {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-12px) scale(0.96);
+    pointer-events: none;
+}
+
 .logo-img {
-    height: 48px;
+    height: 59px;
     width: auto;
 }
 
@@ -215,7 +235,7 @@ img {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, rgba(28,51,90,0.85) 0%, rgba(20,36,64,0.95) 100%), url('../img/transformer_hero.png') center/cover no-repeat;
+    background: linear-gradient(135deg, rgba(28, 51, 90, 0.85) 0%, rgba(20, 36, 64, 0.95) 100%), url('../img/transformer_hero.png') center/cover no-repeat;
     z-index: -1;
     overflow: hidden;
 }
@@ -231,30 +251,65 @@ img {
 }
 
 .hero-content {
-    max-width: 800px;
-    text-align: left;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
 }
 
-.hero-title {
-    color: var(--color-white);
-    font-size: 4.5rem;
-    font-weight: 800;
+.hero-logo-title {
     margin-bottom: 1.5rem;
-    text-transform: uppercase;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-logo-img {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.4));
+    transition: transform var(--transition-base);
+}
+
+.hero-logo-img:hover {
+    transform: scale(1.02);
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.hero-slogan {
+    color: var(--color-secondary);
+    font-size: 2.35rem;
+    font-weight: 700;
+    line-height: 1.25;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .hero-subtitle {
-    font-size: 1.5rem;
-    color: #cbd5e1;
-    margin-bottom: 3rem;
-    max-width: 600px;
+    font-size: 1.35rem;
+    color: #e2e8f0;
+    margin: 0 auto 2.5rem auto;
+    max-width: 650px;
 }
 
 .hero-actions {
     display: flex;
     gap: 1.5rem;
+    justify-content: center;
     flex-wrap: wrap;
+    opacity: 1;
+    visibility: visible;
 }
 
 /* ==========================================================================
@@ -348,7 +403,7 @@ img {
     font-family: var(--font-heading);
     text-align: center;
     padding: 2rem;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
 }
 
 /* ==========================================================================
@@ -554,7 +609,7 @@ img {
     align-items: center;
     justify-content: center;
     z-index: 9999;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     transition: transform var(--transition-base), background-color var(--transition-base);
     animation: pulse 2s infinite ease-in-out;
 }
@@ -569,9 +624,11 @@ img {
     0% {
         box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
     }
+
     70% {
         box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
     }
+
     100% {
         box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
     }
@@ -606,18 +663,19 @@ img {
 
 .clientes-slider::before {
     left: 0;
-    background: linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+    background: linear-gradient(to right, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
 }
 
 .clientes-slider::after {
     right: 0;
-    background: linear-gradient(to left, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+    background: linear-gradient(to left, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
 }
 
 .clientes-slide-track {
     display: flex;
     align-items: center;
-    width: calc(200px * 38); /* 19 logos * 2 = 38 */
+    width: calc(200px * 38);
+    /* 19 logos * 2 = 38 */
     animation: scroll 40s linear infinite;
 }
 
@@ -659,8 +717,13 @@ img {
 }
 
 @keyframes scroll {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(calc(-200px * 19)); }
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(calc(-200px * 19));
+    }
 }
 
 .clientes-grid {
@@ -679,9 +742,14 @@ img {
    Media Queries (Responsividade)
    ========================================================================== */
 @media (max-width: 1024px) {
-    .hero-title {
-        font-size: 3.5rem;
+    .hero-logo-img {
+        max-width: 240px;
     }
+
+    .hero-slogan {
+        font-size: 2rem;
+    }
+
     .strip-grid {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -697,7 +765,7 @@ img {
         width: 100%;
         background-color: var(--color-primary);
         padding: 1.5rem 0;
-        box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
     }
 
     .nav-links.active {
@@ -713,7 +781,7 @@ img {
     }
 
     .hero {
-        padding: 140px 0 60px;
+        padding: 110px 0 40px;
         text-align: center;
     }
 
@@ -725,8 +793,12 @@ img {
         justify-content: center;
     }
 
-    .hero-title {
-        font-size: 2.75rem;
+    .hero-logo-img {
+        max-width: 210px;
+    }
+
+    .hero-slogan {
+        font-size: 1.75rem;
     }
 
     .quem-somos-grid,
@@ -741,19 +813,35 @@ img {
 }
 
 @media (max-width: 480px) {
-    .hero-title {
-        font-size: 2.25rem;
+    .hero {
+        padding: 95px 0 30px;
     }
+
+    .hero-subtitle {
+        margin-bottom: 1.5rem;
+    }
+
+    .hero-logo-img {
+        max-width: 185px;
+    }
+
+    .hero-slogan {
+        font-size: 1.4rem;
+    }
+
     .hero-actions {
         flex-direction: column;
         width: 100%;
     }
+
     .hero-actions .btn {
         width: 100%;
     }
+
     .strip-grid {
         grid-template-columns: 1fr;
     }
+
     .whatsapp-fab {
         bottom: 1.5rem;
         right: 1.5rem;

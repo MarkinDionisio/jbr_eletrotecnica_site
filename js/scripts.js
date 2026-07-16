@@ -90,6 +90,27 @@ document.addEventListener('DOMContentLoaded', () => {
         scrollObserver.observe(el);
     });
 
+    // Toolbar/Navbar Logo Visibility Observer
+    const heroLogoImg = document.querySelector('.hero-logo-img');
+    const navbarLogoLink = document.querySelector('#navbar .logo-link');
+
+    if (heroLogoImg && navbarLogoLink) {
+        const logoObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    navbarLogoLink.classList.add('hidden-navbar-logo');
+                } else {
+                    navbarLogoLink.classList.remove('hidden-navbar-logo');
+                }
+            });
+        }, {
+            root: null,
+            threshold: 0
+        });
+
+        logoObserver.observe(heroLogoImg);
+    }
+
     // Automatically update the current year in the footer
     const currentYearElement = document.getElementById('current-year');
     if (currentYearElement) {
