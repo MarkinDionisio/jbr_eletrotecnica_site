@@ -407,6 +407,51 @@ img {
 }
 
 /* ==========================================================================
+   Manutenção em Máquinas Elétricas
+   ========================================================================== */
+.section-manutencao-maquinas {
+    padding: 6rem 0;
+    background-color: var(--color-white);
+}
+
+.manutencao-maquinas-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.manutencao-maquinas-text p {
+    margin-bottom: 1rem;
+    font-size: 1.125rem;
+}
+
+.manutencao-maquinas-text strong {
+    color: var(--color-primary);
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.gallery-grid img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform var(--transition-base), box-shadow var(--transition-base);
+    aspect-ratio: 1 / 1;
+}
+
+.gallery-grid img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.18);
+}
+
+/* ==========================================================================
    Serviços e Produtos
    ========================================================================== */
 .section-servicos {
@@ -802,8 +847,18 @@ img {
     }
 
     .quem-somos-grid,
-    .contato-grid {
+    .contato-grid,
+    .manutencao-maquinas-grid {
         grid-template-columns: 1fr;
+    }
+
+    .manutencao-maquinas-grid {
+        text-align: center;
+    }
+
+    .manutencao-maquinas-text .section-title::after {
+        left: 50%;
+        transform: translateX(-50%);
     }
 
     .footer-content {
